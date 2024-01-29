@@ -1,0 +1,56 @@
+<%- layout("/layouts/boilerplate.ejs") %>
+<body>
+<div class="row">
+    <div class="col-8 offset-2"> <!--col-8 means a space of 8 columns and offset denotes the space from the left of the screen-->
+        <br><br>
+    <h3>CREATE A NEW LISTING</h3>
+    <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">  <!--mb-3 means margin-bottom 3  it is a class in bootstrap-->
+            <label for="title" class="form-label">Title</label>
+            <input name="listing[title]" class="form-control" placeholder="Add a catchy title" type="text" required/>
+            <div class="valid-feedback">Title looks good!!</div>
+            <div class="invalid-feedback">Title should be valid</div>
+        </div>
+         <!--instead of writing the names as title, description, etc we are storing it in the form of an object by enclosing it in third brackets and the object name is listing-->
+        <div class="mb-3">
+            <label for="Description" class="form-label">Description</label> 
+            <textarea name="listing[description]" class="form-control" placeholder="enter description" required></textarea>
+            <div class="invalid-feedback">Please enter the description</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="Image-URL" class="form-label">Upload Image</label> 
+            <input name="listing[image]" class="form-control" type="file" required/>
+        </div>
+        
+        <div class="row">
+        <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">
+            Price</label> 
+            <input name="listing[price]" class="form-control" placeholder="enter price" type="number" required/>
+            <div class="invalid-feedback">Price should be valid</div>
+        </div>
+
+        <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input name="listing[country]" 
+            class="form-control" placeholder="enter country" type="text" required/>
+            <div class="invalid-feedback">Country name should be valid</div>
+        </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input name="listing[location]" class="form-control" placeholder="enter location" type="text" required/>
+            <div class="invalid-feedback">Location should be valid</div>
+        </div>
+        
+        <br><br>
+
+        <button class="btn btn-dark add-btn">Add</button>
+    </form>
+    </div>
+</div>
+</body>
+ 
+<!--HTML form validation is applied via CSS’s two pseudo-classes, :invalid and :valid. It applies to <input>, <select>, and <textarea> elements-->

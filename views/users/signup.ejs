@@ -1,0 +1,28 @@
+<%- layout("/layouts/boilerplate.ejs") %>
+
+<div class="row">
+    <h1 class="col-6 offset-3">Signup on Wanderlust</h1>
+    <div class="col-6 offset-3"> <!--col-8 means a space of 8 columns and offset denotes the space from the left of the screen-->
+        <form action="/signup" method="post" novalidate class="needs-validation">
+            <div class="mb-3">  <!--mb-3 means margin-bottom 3  it is a class in bootstrap-->
+                <label for="username" class="form-label">Username</label>
+                <input name="username" class="form-control" id="username" placeholder="Username" type="text" required/>
+                <div class="valid-feedback">Looks good!!</div>
+                <div class="invalid-feedback"> Username should be valid</div>
+            </div>
+            <div class="mb-3">  <!--mb-3 means margin-bottom 3  it is a class in bootstrap-->
+                <label for="email" class="form-label">Email</label>
+                <input name="email" class="form-control" id="email" placeholder="Email" type="email" required/>
+                <div class="valid-feedback">Looks good!!</div>
+                <div class="invalid-feedback"> Email should be valid</div>
+            </div>
+            <div class="mb-3">  <!--mb-3 means margin-bottom 3  it is a class in bootstrap-->
+                <label for="password" class="form-label">Password</label>
+                <input name="password" class="form-control" id="password" placeholder="Password" type="password" required/>
+                <div class="valid-feedback">Looks good!!</div>
+                <div class="invalid-feedback">Password should be valid</div>
+            </div>
+            <button class="btn btn-success">SignUp</button>
+        </form>
+    </div>
+</div>
