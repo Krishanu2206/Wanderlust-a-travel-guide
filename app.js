@@ -100,57 +100,9 @@ app.use((req, res, next)=>{
     next();
 });
 
-/* app.get("/demouser", async(req, res)=>{
-    let fakeuser=new User({
-        email:"fakeuser@gmail.com",
-        username:"student",
-    });
-    let registeredUser=await User.register(fakeuser, "helloworld");
-    res.send(registeredUser);
-}); */
-
-//1)authenticate() Generates a function that is used in Passport's LocalStrategy, 2)serializeUser() Generates a function that is used by Passport to serialize users into the session, 3)deserializeUser() Generates a function that is used by Passport to deserialize users into the session, 4)register(user, password, cb) Convenience method to register a new user instance with a given password.
-
-/* const validatelisting=(req, res, next)=>{
-    let {error}=listingschema.validate(req.body);
-    if(error){  //to check if error is present in the result or not
-        console.log(error);
-        let errmsg=error.details.map((el)=>el.message).join(",");
-        throw new expresserror(400, errmsg);
-    }else{
-        next();
-    }
-}; */
-
-/* const validatereview=(req, res, next)=>{
-    let {error}=reviewschema.validate(req.body);
-    if(error){  //to check if error is present in the result or not
-        console.log(error);
-        let errmsg=error.details.map((el)=>el.message).join(",");
-        throw new expresserror(400, errmsg);
-    }else{
-        next();
-    }
-}; */
-
 app.use("/listings", listings);
-
 app.use("/listings/:id/reviews", reviews);
-
 app.use("/", userrouter);
-
-/* app.get("/testListing", async(req, res)=>{
-    let sampleListing=new Listing({   // so that when we enter the website a document is created by default
-        title: "My New Villa",
-        description: "By the Beach",
-        price: 1200,
-        location: "Calangute, Goa",
-        country: "India",
-    });
-    await sampleListing.save();
-    console.log("sample was saved");
-    res.send("successful testing");
-}) */
 
 app.all("*", (req, res, next)=>{
     next(new expresserror(404, "Page Not Found"));
@@ -159,7 +111,6 @@ app.all("*", (req, res, next)=>{
 app.use((err, req, res, next)=>{
     let {status=500, message="Some error occurred"}=err;
     res.status(status).render("error.ejs", {status, message});
-    //res.status(status).send(message);
 })
 
 app.listen(port, ()=>{
