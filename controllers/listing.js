@@ -58,7 +58,7 @@ module.exports.rendereditform=async (req, res)=>{
         res.redirect("/listings");
     } 
     let originalimageurl=listing.image.url;
-    originalimageurl=originalimageurl.replace("/upload", "/upload/w_250");
+    originalimageurl=originalimageurl.replace("/upload", "/upload/w_250"); //using image transformation feature of cloudinary
     res.render("listings/edit.ejs", {listing, originalimageurl});
 };
 
